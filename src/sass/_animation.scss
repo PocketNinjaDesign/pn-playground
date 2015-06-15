@@ -1,0 +1,112 @@
+
+
+/*
+ * Creates both the Keyframe Creator
+ * AND keyframe class
+ *
+ *
+ *
+
+EXAMPLE 1
+
+Desc:
+TO create the keyframes and class separately
+
+Code:
+$bttnBaseZoomOutName: 'bttnBaseZoomOut';
+$bttnBaseZoomOut: (
+  '0': (transform: scale3d(1.2, 1.2, 1.2)),
+  '85': (transform: scale3d(1.3, 1.3, 1.3)),
+  '100': (transform: scale3d(1.2, 1.2, 1.2))
+);
+@include keyframeCreator($bttnBaseZoomOutName, $bttnBaseZoomOut);
+@include keyframeClassCreator($bttnBaseZoomOutName, 0.4s);
+
+
+EXAMPLE 2
+
+Desc:
+TO create the keyframes and class in 1 mixin
+
+Code:
+@include animationFullCreator((
+  name: 'bttnBaseZoomOut',
+  duration: 0.4s,
+  animation: (
+    '0': (transform: scale3d(1.2, 1.2, 1.2)),
+    '85': (transform: scale3d(1.3, 1.3, 1.3)),
+    '100': (transform: scale3d(1.2, 1.2, 1.2))
+  )
+));
+
+ *
+ *
+ */
+@mixin animationFullCreator($animMap) {
+  @include keyframeCreator(
+    map-get($animMap, name),
+    map-get($animMap, animation)
+  );
+  @include keyframeClassCreator(
+    map-get($animMap, name),
+    map-get($animMap, duration)
+  );
+}
+
+
+
+/*
+ * Create the keyframe CSS
+ *
+ *
+ */
+@mixin keyframeCreator($keyName, $steps) {
+  @-webkit-keyframes #{$keyName} {
+    @each $step, $item in $steps {
+      @include keyframeStepInsert($step, $item);
+    }
+  }
+  @keyframes #{$keyName} {
+    @each $step, $item in $steps {
+      @include keyframeStepInsert($step, $item);
+    }
+  }
+}
+@mixin keyframeStepInsert($step, $item) {
+  $key: "#{$step}%";
+  #{$key} {
+    @include keyframeStyleItemInsert($item);
+  }
+}
+@mixin keyframeStyleItemInsert($item) {
+  @each $name, $value in $item {
+    -webkit-#{$name}: $value;
+    #{$name}: $value;
+  }
+}
+
+
+
+/*
+ * Create the animation class to initiate
+ * the keyframe animations
+ *
+ *
+ */
+@mixin keyframeClassCreator($param1, $param2) {
+  .#{$param1} {
+    @include styleParamInsert('animation-name', #{$param1}, $all: true);
+    @include styleParamInsert('animation-duration', $param2, $all: true);
+    @include styleParamInsert('animation-fill-mode', both, $all: true);
+  }
+}
+
+@mixin styleParamInsert($key, $value, $all: false) {
+  @if $all == true {
+    -webkit-#{$key}: $value;
+    -moz-#{$key}: $value;
+    -ms-#{$key}: $value;
+    -o-#{$key}: $value;
+  }
+  #{$key}: $value;
+}

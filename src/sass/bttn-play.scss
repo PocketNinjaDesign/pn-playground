@@ -1,0 +1,26 @@
+
+@import 'animation';
+
+
+@include animationFullCreator((
+  name: 'bttnBaseZoomOut',
+  duration: 0.4s,
+  animation: (
+    '0': (transform: scale3d(1.2, 1.2, 1.2)),
+    '85': (transform: scale3d(1.3, 1.3, 1.3)),
+    '100': (transform: scale3d(1.2, 1.2, 1.2))
+  )
+));
+
+@include animationFullCreator((
+  name: 'bttnBaseZoomIn',
+  duration: 0.9s,
+  animation: (
+    '0': (
+      transform: scale3d(1.2, 1.2, 1.2),
+      width: 100px
+    ),
+    '85': (transform: scale3d(1.3, 1.3, 1.3)),
+    '100': (transform: scale3d(1.2, 1.2, 1.2))
+  )
+));
