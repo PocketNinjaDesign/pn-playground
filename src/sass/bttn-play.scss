@@ -1,26 +1,6 @@
 
 @import 'animation';
 
-/*
- * Variables for buttons states
- *
- */
-
-/* Button base */
-
-$bttnBaseDefaultScale: scale3d(1, 1, 1);
-$bttnBaseActiveScale: scale3d(1.2, 1.2, 1.2);
-
-/* Pause icon */
-
-$iconPauseDefaultScale: scale3d(1, 1, 1);
-$iconPauseActiveScale: scale3d(0.1, 0.1, 0.1);
-
-
-/* Play icon */
-
-$iconPlayDefaultScale: scale3d(1, 1, 1);
-$iconPlayActiveScale: scale3d(0, 0, 0);
 
 
 /*
@@ -77,9 +57,6 @@ $iconPlayActiveScale: scale3d(0, 0, 0);
   -webkit-transform: scale3d(1.2, 1.2, 1.2);
   transform: scale3d(1.2, 1.2, 1.2);
 }
-.bttn-play.state-pause .icon.pause {
-  opacity: 1;
-}
 .bttn-play.state-pause .icon.play {
   -webkit-transform: scale3d(0, 0, 0);
   transform: scale3d(0, 0, 0);
@@ -94,12 +71,16 @@ $iconPlayActiveScale: scale3d(0, 0, 0);
 
 
 
+/* Button Base animations */
+
+$bttnBaseDefaultScale: scale3d(1, 1, 1);
+$bttnBaseActiveScale: scale3d(1.2, 1.2, 1.2);
 
 @include animationFullCreator((
   name: 'bttnBaseZoomOut',
   duration: 0.4s,
   animation: (
-    '0': (transform: scale3d(1.2, 1.2, 1.2)),
+    '0': (transform: scale3d(1, 1, 1)),
     '85': (transform: scale3d(1.3, 1.3, 1.3)),
     '100': (transform: scale3d(1.2, 1.2, 1.2))
   )
@@ -107,12 +88,95 @@ $iconPlayActiveScale: scale3d(0, 0, 0);
 
 @include animationFullCreator((
   name: 'bttnBaseZoomIn',
-  duration: 0.9s,
+  duration: 0.5s,
   animation: (
-    '0': (
-      transform: scale3d(1.2, 1.2, 1.2)
-    ),
+    '0': (transform: scale3d(1.2, 1.2, 1.2)),
+    '100': (transform: scale3d(1, 1, 1))
+  )
+));
+
+@include animationFullCreator((
+  name: 'bttnBasePulseIn',
+  duration: 0.6s,
+  animation: (
+    '40': (transform: scale3d(1.2, 1.2, 1.2)),
+    '85': (transform: scale3d(1.1, 1.1, 1.1)),
+    '100': (transform: scale3d(1.2, 1.2, 1.2))
+  )
+));
+
+@include animationFullCreator((
+  name: 'bttnBasePulseOut',
+  duration: 0.6s,
+  animation: (
+    '70': (transform: scale3d(1.2, 1.2, 1.2)),
     '85': (transform: scale3d(1.3, 1.3, 1.3)),
     '100': (transform: scale3d(1.2, 1.2, 1.2))
   )
 ));
+
+/* Button Play animations */
+
+$iconPlayDefaultScale: scale3d(1, 1, 1);
+$iconPlayActiveScale: scale3d(0, 0, 0);
+
+@include animationFullCreator((
+  name: 'zoomOutBig',
+  duration: 0.4s,
+  animation: (
+    '0': (transform: $iconPlayDefaultScale),
+    '100': (
+      transform: $iconPlayActiveScale,
+      opacity: 0
+    )
+  )
+));
+
+@include animationFullCreator((
+  name: 'zoomInBig',
+  duration: 0.6s,
+  animation: (
+    '50': (transform: $iconPlayActiveScale),
+    '100': (
+      transform: $iconPlayDefaultScale,
+      opacity: 1
+    )
+  )
+));
+
+/* Button Pause animations */
+
+$iconPauseDefaultScale: scale3d(1, 1, 1);
+$iconPauseActiveScale: scale3d(0.1, 0.1, 0.1);
+
+@include animationFullCreator((
+  name: 'pauseBigZoomIn',
+  duration: 0.6s,
+  animation: (
+    '50': (
+      transform: $iconPauseDefaultScale,
+      opacity: 0
+    ),
+    '100': (
+      transform: $iconPauseActiveScale,
+      opacity: 1
+    )
+  )
+));
+
+@include animationFullCreator((
+  name: 'pauseBigZoomOut',
+  duration: 0.6s,
+  animation: (
+    '50': (
+      transform: $iconPauseActiveScale,
+      opacity: 1
+    ),
+    '100': (
+      transform: $iconPauseDefaultScale,
+      opacity: 0
+    )
+  )
+));
+
+
