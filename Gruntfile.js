@@ -14,11 +14,16 @@ module.exports = function(grunt) {
       tasks: ['jshint']
     },
     uglify: {
+      options: {
+        mangle: {
+          except: ['jQuery']
+        }
+      },
       my_target: {
-        files: {
-          'dest/js/output.min.js': ['src/js/*.js']
+        _files: {
+          'dest/js/output.min.js': ['src/js/egg.js', 'src/js/cheese.js']
         },
-        OR_files: [{
+        files: [{
           expand: true,
           cwd: 'src/js',
           src: '**/*.js',

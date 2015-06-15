@@ -95,13 +95,13 @@ Code:
  */
 @mixin keyframeClassCreator($param1, $param2) {
   .#{$param1} {
-    @include styleParamInsert('animation-name', #{$param1}, $all: true);
-    @include styleParamInsert('animation-duration', $param2, $all: true);
-    @include styleParamInsert('animation-fill-mode', both, $all: true);
+    @include styleParamInsert('animation-name', #{$param1});
+    @include styleParamInsert('animation-duration', $param2);
+    @include styleParamInsert('animation-fill-mode', both);
   }
 }
 
-@mixin styleParamInsert($key, $value, $all: false) {
+@mixin styleParamInsert($key, $value, $all: true) {
   @if $all == true {
     -webkit-#{$key}: $value;
     -moz-#{$key}: $value;
