@@ -51,17 +51,12 @@ Code:
  *
  *
  */
-/*
- * Main Styling
- *
- */
-/* Button play styling 1 */
-.bttn-play {
+.bttn-play-other {
   position: relative;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 40px auto;
   width: 50px;
   height: 50px;
-  background: #000;
+  background: #115599;
   border-radius: 100%;
   overflow: hidden;
   cursor: pointer;
@@ -71,17 +66,17 @@ Code:
   -o-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out; }
 
-.bttn-play:hover {
-  background-color: #ef6600; }
+.bttn-play-other:hover {
+  background-color: #447799; }
 
-.bttn-play .mc-pixel {
+.bttn-play-other .mc-pixel {
   position: absolute;
   width: 1px;
   height: 1px;
   top: 50%;
   left: 50%; }
 
-.bttn-play .icon {
+.bttn-play-other .icon {
   position: absolute;
   top: -8px;
   left: -8px;
@@ -89,10 +84,10 @@ Code:
   height: 16px;
   background-size: contain; }
 
-.bttn-play .icon.play {
+.bttn-play-other .icon.play {
   background-image: url(img/icons/icon-play.png); }
 
-.bttn-play .icon.pause {
+.bttn-play-other .icon.pause {
   width: 200px;
   height: 200px;
   left: -100px;
@@ -101,17 +96,17 @@ Code:
   opacity: 0; }
 
 /* pause mode */
-.bttn-play.state-pause {
+.bttn-play-other.state-pause {
   background-color: #ef6600;
   -webkit-transform: scale3d(1.2, 1.2, 1.2);
   transform: scale3d(1.2, 1.2, 1.2); }
 
-.bttn-play.state-pause .icon.play {
+.bttn-play-other.state-pause .icon.play {
   -webkit-transform: scale3d(0, 0, 0);
   transform: scale3d(0, 0, 0);
   opacity: 0; }
 
-.bttn-play.state-pause .icon.pause {
+.bttn-play-other.state-pause .icon.pause {
   -webkit-transform: scale3d(0.1, 0.1, 0.1);
   transform: scale3d(0.1, 0.1, 0.1);
   opacity: 1; }
@@ -121,22 +116,22 @@ Code:
   0% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
-  85% {
+  70% {
     -webkit-transform: scale3d(1.3, 1.3, 1.3);
     transform: scale3d(1.3, 1.3, 1.3); }
   100% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); } }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); } }
 @keyframes bttnBaseZoomOut {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); }
-  85% {
+  70% {
     -webkit-transform: scale3d(1.3, 1.3, 1.3);
     transform: scale3d(1.3, 1.3, 1.3); }
   100% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); } }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); } }
 .bttnBaseZoomOut {
   -webkit-animation-name: bttnBaseZoomOut;
   -moz-animation-name: bttnBaseZoomOut;
@@ -156,15 +151,15 @@ Code:
 
 @-webkit-keyframes bttnBaseZoomIn {
   0% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); }
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); } }
 @keyframes bttnBaseZoomIn {
   0% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); }
   100% {
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1); } }
@@ -187,24 +182,24 @@ Code:
 
 @-webkit-keyframes bttnBasePulseIn {
   40% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); }
   85% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
     transform: scale3d(1.1, 1.1, 1.1); }
   100% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); } }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); } }
 @keyframes bttnBasePulseIn {
   40% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); }
   85% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
     transform: scale3d(1.1, 1.1, 1.1); }
   100% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); } }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); } }
 .bttnBasePulseIn {
   -webkit-animation-name: bttnBasePulseIn;
   -moz-animation-name: bttnBasePulseIn;
@@ -224,24 +219,24 @@ Code:
 
 @-webkit-keyframes bttnBasePulseOut {
   70% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); }
   85% {
-    -webkit-transform: scale3d(1.3, 1.3, 1.3);
-    transform: scale3d(1.3, 1.3, 1.3); }
+    -webkit-transform: scale3d(1.6, 1.6, 1.6);
+    transform: scale3d(1.6, 1.6, 1.6); }
   100% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); } }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); } }
 @keyframes bttnBasePulseOut {
   70% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); }
   85% {
-    -webkit-transform: scale3d(1.3, 1.3, 1.3);
-    transform: scale3d(1.3, 1.3, 1.3); }
+    -webkit-transform: scale3d(1.6, 1.6, 1.6);
+    transform: scale3d(1.6, 1.6, 1.6); }
   100% {
-    -webkit-transform: scale3d(1.2, 1.2, 1.2);
-    transform: scale3d(1.2, 1.2, 1.2); } }
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4); } }
 .bttnBasePulseOut {
   -webkit-animation-name: bttnBasePulseOut;
   -moz-animation-name: bttnBasePulseOut;

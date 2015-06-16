@@ -1,0 +1,20 @@
+.page-test .block {
+  background: #222; }
+
+.page-test .block:after {
+  position: relative;
+  content: '';
+  clear: both;
+  height: 0;
+  display: block; }
+
+.page-test .column {
+  padding: 20px 0;
+  width: 50%; }
+
+.page-test .column.left {
+  float: left;
+  background: #eee; }
+
+.page-test .column.right {
+  float: right; }
