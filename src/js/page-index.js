@@ -3,7 +3,7 @@ pg = pg || {};
 pg.page = pg.page || {};
 
 $(function() {
-  pg.page.test = function() {
+  pg.page.index = function() {
     var
       playButton1 = new pg.widget.playButton(),
       playButton2 = new pg.widget.playButton();
