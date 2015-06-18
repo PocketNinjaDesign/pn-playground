@@ -1,1 +1,0 @@
-!function(){var a=!0,b="ant",c=function(){return b};return a&&(b="bee"),{getParsnip:c}}();
