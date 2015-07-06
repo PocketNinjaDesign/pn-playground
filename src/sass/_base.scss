@@ -1,0 +1,19 @@
+
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+* {
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #111;
+}

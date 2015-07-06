@@ -1,0 +1,37 @@
+
+@import "base";
+
+
+
+.block {
+  width: 200px;
+  height: 200px;
+  border: 1px solid;
+  @include border-color(#f00 #fff null #e8ae1a);
+}
+
+
+
+section {
+  color: #fff;
+
+  @include outer-container(100%);
+  aside {
+    background: #222;
+    padding: 1em 0;
+    @include span-columns(3);
+  }
+  article {
+    background: #333;
+    @include span-columns(9);
+  }
+
+
+  aside.head {
+    background: #2f6700;
+    padding: 1em 0;
+  }
+  article.head {
+    background: #338000;
+  }
+}
